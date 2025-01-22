@@ -13,21 +13,13 @@
 
 </div>
 
-<!-- PROJECT LOGO -->
-<br />
-<!-- UPDATE -->
 <div align="center">
-  <a href="https://github.com/proffapt/PROJECT_NAME">
-    <img width="140" alt="image" src="https://user-images.githubusercontent.com/86282911/206632284-cb260f57-c612-4ab5-b92b-2172c341ab23.png">
-  </a>
-
-  <h3 align="center">PROJECT_NAME</h3>
+  <h3 align="center">ilogger</h3>
 
   <p align="center">
-  <!-- UPDATE -->
-    <i>Project one liner slogan goes here</i>
+    <i>Intelligent Logger: Benifits of no-SQL DB for storing logs and TypeDef for robust code</i>
     <br />
-    <a href="https://github.com/proffapt/PROJECT_NAME/issues">Request Feature | Report Bug</a>
+    <a href="https://github.com/proffapt/ilogger/issues">Request Feature | Report Bug</a>
   </p>
 </div>
 
@@ -37,7 +29,6 @@
 <summary>Table of Contents</summary>
 
 - [About The Project](#about-the-project)
-  - [Supports](#supports)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -51,27 +42,12 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<!-- UPDATE -->
-<div align="center">
-  <a href="https://github.com/proffapt/PROJECT_NAME">
-    <img width="80%" alt="image" src="https://user-images.githubusercontent.com/86282911/206632547-a3b34b47-e7ae-4186-a1e6-ecda7ddb38e6.png">
-  </a>
-</div>
 
-_Detailed explaination of the project goes here_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<div id="supports"></div>
-
-### Supports:
-1. Shells
-    * `bash`
-    * `fish`
-    * `zsh`
-2. OS(s)
-    * `MacOS`[`BSD` based]
-    * any `*nix`[`GNU+Linux` and `Unix`]
+A centralised service to store logs sent via API calls, built with Django and MonogoDB.<br> 
+Then, what's special about it?
+- Supports IDE suggestions (strict log type definitions)
+- Extending the log type definition is just adding the definition into [ilogger_service.py](./ilogger_service.py).
+- Once the type definition is updated, the checks on GET and POST request to support the newly added changes are automatically updated so you don't have to that.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -81,31 +57,24 @@ _Detailed explaination of the project goes here_
 To set up a local instance of the application, follow the steps below.
 
 ### Prerequisites
-<!-- UPDATE -->
 The following dependencies are required to be installed for the project to function properly:
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* docker
+* docker-compose
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Installation
 
 _Now that the environment has been set up and configured to properly compile and run the project, the next step is to install and configure the project locally on your system._
-<!-- UPDATE -->
-1. Clone the repository
+1. Clone the repository and cd into it
    ```sh
-   git clone https://github.com/proffapt/PROJECT_NAME.git
+   git clone https://github.com/proffapt/ilogger.git
+   cd ilogger/
    ```
-2. Make the script executable
+2. Create `.env` file from `.env.example`
+3. Build and start the service
    ```sh
-   cd ./PROJECT_NAME
-   chmod +x ./PROJECT_NAME
-   ```
-3. Execute the script
-   ```sh
-   ./PROJECT_NAME
+   docker compose up --build -d
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -114,13 +83,12 @@ _Now that the environment has been set up and configured to properly compile and
 <!-- USAGE EXAMPLES -->
 ## Usage
 <!-- UPDATE -->
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space.
 
-<div align="center">
-  <a href="https://github.com/proffapt/PROJECT_NAME">
-    <img width="80%" alt="image" src="https://user-images.githubusercontent.com/86282911/206632640-40dc440e-5ef3-4893-be48-618f2bd85f37.png">
-  </a>
-</div>
+Refer to [ilogger_service.example.py](./ilogger_service.example.py) for implementation of submitting / storing logs into the service. Also refer to [ilogger_service.py](./ilogger_service.py) for Log type definitions. Some key points to note:
+- Supports GET, POST and DELETE requests on `/logs/api/` endpoint.
+- All the fields in a log type are queryable via query-params using GET request.
+- To modify the log definitions, just update the dataclasses in [ilogger_service.py](./ilogger_service.py) and you are done.
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -154,7 +122,6 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [Img Shields](https://shields.io)
-<!-- UPDATE -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -170,15 +137,15 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/proffapt/PROJECT_NAME.svg?style=for-the-badge
-[contributors-url]: https://github.com/proffapt/PROJECT_NAME/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/proffapt/PROJECT_NAME.svg?style=for-the-badge
-[forks-url]: https://github.com/proffapt/PROJECT_NAME/network/members
-[stars-shield]: https://img.shields.io/github/stars/proffapt/PROJECT_NAME.svg?style=for-the-badge
-[stars-url]: https://github.com/proffapt/PROJECT_NAME/stargazers
-[issues-shield]: https://img.shields.io/github/issues/proffapt/PROJECT_NAME.svg?style=for-the-badge
-[issues-url]: https://github.com/proffapt/PROJECT_NAME/issues
-[license-shield]: https://img.shields.io/github/license/proffapt/PROJECT_NAME.svg?style=for-the-badge
-[license-url]: https://github.com/proffapt/PROJECT_NAME/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/proffapt/ilogger.svg?style=for-the-badge
+[contributors-url]: https://github.com/proffapt/ilogger/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/proffapt/ilogger.svg?style=for-the-badge
+[forks-url]: https://github.com/proffapt/ilogger/network/members
+[stars-shield]: https://img.shields.io/github/stars/proffapt/ilogger.svg?style=for-the-badge
+[stars-url]: https://github.com/proffapt/ilogger/stargazers
+[issues-shield]: https://img.shields.io/github/issues/proffapt/ilogger.svg?style=for-the-badge
+[issues-url]: https://github.com/proffapt/ilogger/issues
+[license-shield]: https://img.shields.io/github/license/proffapt/ilogger.svg?style=for-the-badge
+[license-url]: https://github.com/proffapt/ilogger/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/proffapt
