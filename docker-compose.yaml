@@ -1,0 +1,31 @@
+services:
+  app:
+    image: proffapt/ilogger-app
+    container_name: ilogger-app
+    build: .
+    env_file:
+      - .env
+    ports:
+      - 8001:8000
+    command: "${CMD:-runserver 0.0.0.0:8000}"
+    networks:
+      - ilogger-network
+    depends_on:
+      - ilogger-db
+
+  db:
+    image: mongo
+    container_name: ilogger-db
+    volumes:
+      - ilogger-data:/data/db
+    networks:
+      - ilogger-network
+
+volumes:
+  ilogger-data:
+    name: ilogger
+
+networks:
+  ilogger-network:
+    name: ilogger
+    driver: bridge

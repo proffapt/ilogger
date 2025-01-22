@@ -1,0 +1,9 @@
+*.md
+.git/
+.github/
+.gitignore
+
+venv
+__pycache__
+
+ilogger_service.example.py
